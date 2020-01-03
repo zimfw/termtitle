@@ -1,7 +1,6 @@
-# sets the window title and updates upon directory change
 # more work probably needs to be done here to support multiplexers
 () {
-  if [[ ${TERM_PROGRAM} == Apple_Terminal && -z ${INSIDE_EMACS} ]]; then
+  if [[ ${TERM_PROGRAM} == Apple_Terminal ]]; then
     termtitle_update() {
       print -n "\E]7;$(urlencode ${PWD})\a"
     }

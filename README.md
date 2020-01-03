@@ -9,16 +9,17 @@ Settings
 The default terminal title format is `%n@%m: %~`, which corresponds to
 `username@host: /path/to/working/directory`.
 
-You can set your own format using [prompt expansion escape sequences].
-The example below sets the format to show the working directory name:
+You can set your format using [prompt expansion escape sequences].
+The following example sets the format to show the working directory name:
 
     zstyle ':zim:termtitle' format '%1~'
 
-For Apple Terminal, the above is not supported, and the working directory escape
-sequence is sent instead.
+Apple Terminal does not support the above, but a working directory escape
+sequence which is sent instead.
 
 By default, the terminal title is updated before each prompt. The used [hooks]
-can be customized with the following zstyle:
+can be customized with the zstyle below. For example, to have the title updated
+before each prompt and also before a command is executed:
 
     zstyle ':zim:termtitle' hooks 'precmd' 'preexec'
 
