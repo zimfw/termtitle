@@ -1,4 +1,0 @@
-# vim:et sts=2 sw=2 ft=zsh
-setopt LOCAL_OPTIONS EXTENDED_GLOB
-
-print -R "${1//(#b)([[:cntrl:] \"-&+,:-@\[-^\`\{-\}])/%${(l:2::0:)$(( [##16]#match ))}}"

@@ -2,7 +2,7 @@
 () {
   if [[ ${TERM_PROGRAM} == Apple_Terminal ]]; then
     termtitle_update() {
-      print -n "\E]7;$(urlencode ${PWD})\a"
+      print -n "\E]7;${PWD}\a"
     }
   else
     case ${TERM} in
