@@ -1,0 +1,5 @@
+# vim:et sts=2 sw=2 ft=zsh
+setopt LOCAL_OPTIONS EXTENDED_GLOB
+
+local input=(${(s::)1})
+print -R "${(j::)input/(#b)([^-\!\'()*.-9A-Z_a-z~])/%${(l:2::0:)$(([##16]#match))}}"
