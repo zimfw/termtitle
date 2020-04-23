@@ -6,7 +6,7 @@
     }
   else
     case ${TERM} in
-      xterm*|*rxvt|alacritty)
+      xterm*|*rxvt|rxvt-*|alacritty)
         local termtitle_format
         zstyle -s ':zim:termtitle' format 'termtitle_format' || termtitle_format='%n@%m: %~'
         builtin eval "termtitle_update() { print -Pn '\E]0;${termtitle_format}\a' }"
