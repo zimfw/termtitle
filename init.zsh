@@ -1,4 +1,4 @@
-() {
+[[ ${TERM} != dumb ]] && () {
   if [[ ${TERM_PROGRAM} == Apple_Terminal ]]; then
     termtitle_update() {
       print -n "\E]7;${PWD}\a"
