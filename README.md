@@ -17,11 +17,10 @@ The following example sets the format to show the working directory name:
 Apple Terminal does not support the above, but a working directory escape
 sequence which is sent instead.
 
-By default, the terminal title is updated before each prompt. The used [hooks]
-can be customized with the zstyle below. For example, to have the title updated
-before each prompt and also before a command is executed:
+By default, the terminal title is updated before each prompt. To also update
+the title with a custom format before a command is executed, the optional
+zstyle below can be added.
 
-    zstyle ':zim:termtitle' hooks 'precmd' 'preexec'
+    zstyle ':zim:termtitle:preexec' format '$1'
 
 [prompt expansion escape sequences]: http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
-[hooks]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
