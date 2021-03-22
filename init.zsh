@@ -3,6 +3,9 @@
   local zhooks zhook
   zstyle -a ':zim:termtitle' hooks 'zhooks' || zhooks=(precmd)
   autoload -Uz add-zsh-hook
+  if [[ ${TERM_PROGRAM} != Apple_Terminal ]]; then
+    setopt prompt{percent,subst}
+  fi
   for zhook in ${zhooks}; do
     if [[ ${TERM_PROGRAM} == Apple_Terminal ]]; then
       termtitle_update_${zhook}() {
@@ -14,13 +17,13 @@
           termtitle_format='%n@%m: %~'
       case ${TERM} in
         screen)
-          builtin eval "termtitle_update_${zhook}() { print -Pn '\Ek${termtitle_format}\E\\' }"
+          builtin eval "termtitle_update_${zhook}() { print -Pn $'\Ek'${(qq)termtitle_format}$'\E\\' }"
           ;;
         *)
-          builtin eval "termtitle_update_${zhook}() { print -Pn '\E]0;${termtitle_format}\a' }"
+          builtin eval "termtitle_update_${zhook}() { print -Pn $'\E]0;'${(qq)termtitle_format}$'\a' }"
           ;;
       esac
-      add-zsh-hook ${zhook} termtitle_update_${zhook}
     fi
+    add-zsh-hook ${zhook} termtitle_update_${zhook}
   done
 }
