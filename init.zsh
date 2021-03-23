@@ -2,10 +2,8 @@
   local termtitle_format
   local zhooks zhook
   zstyle -a ':zim:termtitle' hooks 'zhooks' || zhooks=(precmd)
+  setopt prompt{percent,subst}
   autoload -Uz add-zsh-hook
-  if [[ ${TERM_PROGRAM} != Apple_Terminal ]]; then
-    setopt prompt{percent,subst}
-  fi
   for zhook in ${zhooks}; do
     if [[ ${TERM_PROGRAM} == Apple_Terminal ]]; then
       termtitle_update_${zhook}() {
