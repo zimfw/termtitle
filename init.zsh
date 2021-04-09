@@ -15,10 +15,10 @@
           termtitle_format='%n@%m: %~'
       case ${TERM} in
         screen)
-          builtin eval "termtitle_update_${zhook}() { print -Pn $'\Ek'${(qq)termtitle_format}$'\E\\' }"
+          builtin eval "termtitle_update_${zhook}() { print -Pn '\Ek'${(qq)termtitle_format}'\E\\' }"
           ;;
         *)
-          builtin eval "termtitle_update_${zhook}() { print -Pn $'\E]0;'${(qq)termtitle_format}$'\a' }"
+          builtin eval "termtitle_update_${zhook}() { print -Pn '\E]0;'${(qq)termtitle_format}'\a' }"
           ;;
       esac
     fi
