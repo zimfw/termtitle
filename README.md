@@ -33,7 +33,7 @@ command is being executed and then the current directory name after the command
 ended (i.e. before each prompt):
 
     zstyle ':zim:termtitle' hooks 'preexec' 'precmd'
-    zstyle ':zim:termtitle:preexec' format '${${(z)1}[1]}'
+    zstyle ':zim:termtitle:preexec' format '${${(A)=1}[1]}'
     zstyle ':zim:termtitle:precmd'  format '%1~'
 
 [prompt expansion escape sequences]: http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
