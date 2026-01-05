@@ -36,8 +36,8 @@ ended (i.e. before each prompt):
     zstyle ':zim:termtitle:preexec' format '${${(Az)1}[1]}'
     zstyle ':zim:termtitle:precmd'  format '%1~'
 
-Add the zstyles to your `~/.zshrc`. Make sure you add them before where the
-module is initialized.
+Add the zstyles to the beginning of your `~/.zshrc`, before the modules are
+initialized with `source ${ZIM_HOME}/init.zsh`.
 
 [prompt expansion escape sequences]: http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
 [hooks]: http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
